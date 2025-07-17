@@ -7,6 +7,8 @@ RUN apt-get update && \
     libncurses5-dev \
     libxml2-dev \
     ncbi-blast+ \
+    zlib1g-dev \
+    libhts-dev \
     --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
