@@ -11,6 +11,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN Rscript -e "install.packages('remotes')"
 RUN Rscript -e "remotes::install_github('mhahsler/rBLAST@devel')"
 
 # install scramble
