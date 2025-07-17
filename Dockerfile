@@ -9,6 +9,8 @@ RUN apt-get update && \
     ncbi-blast+ \
     zlib1g-dev \
     libhts-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
     --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
