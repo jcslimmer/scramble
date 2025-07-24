@@ -12,9 +12,15 @@ get_score = function(right_score, left_score){
 }
 ##############################
 get_refs = function(fa, chrom, start, end){
-    if (start == 0) return('N')
+    if (start < 1) {
+      warning(paste("Start coordinate '", chrom, "' is less than 1. Using 'N' for start.", sep=""))
+      return('N')
+      }
     if (missing(fa) | missing(chrom) | missing(start) | missing(end)) return(NULL)
-    if (! chrom %in% names(fa)) return(NULL)
+    if (! chrom %in% names(fa)) {
+      warning(paste("Chromosome '", chrom, "' not found in reference FASTA. Using 'N' for REF.", sep=""))
+      return('N')
+      }
     fa = fa[chrom]
     seq = subseq(fa, start=start, end=end)
     return(as.vector(seq))
